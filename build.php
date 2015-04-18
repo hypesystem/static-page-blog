@@ -1,5 +1,7 @@
 <?php
 
+require "lib/index.php";
+
 $views = getViews();
 renderViews($views);
 
@@ -15,15 +17,7 @@ function getViews() {
 
 function renderViews($views) {
     foreach($views as $v) {
-        ob_start();
-        ob_implicit_flush(false);
-        require "views/".$v;
-        $content = ob_get_clean();
-        ob_start();
-        ob_implicit_flush(false);
-        require "views/_layout.php";
-        $content = ob_get_clean();
-        file_put_contents("public/".$v, $content);
+        renderView($v);
     }
 }
 
