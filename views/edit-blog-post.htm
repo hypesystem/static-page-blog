@@ -8,12 +8,16 @@
     
     var name = getQueryVariable("name");
     
-    if(id) {
+    if(name) {
         var req = new XMLHttpRequest();
         req.open("GET", "_api/get-blog-post.php?name="+name);
         req.onreadystatechange = function() {
             var res = JSON.parse(req.responseText);
-            titleField.innerHTML = res.title;
+            if(res.error) {
+                alert("Something went wrong! "+res.error);
+                return;
+            }
+            titleField.setAttribute("value", res.title);
             editorField.innerHTML = res.content;
         };
         req.send();
