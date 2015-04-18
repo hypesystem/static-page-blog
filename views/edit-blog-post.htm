@@ -11,7 +11,7 @@
     if(name) {
         getUrl("_api/get-blog-post.php?name="+name, function(error, res) {
             if(error) {
-                return alert("Something went wrong! "+error);
+                return console.error("Something went wrong! "+error);
             }
             titleField.setAttribute("value", res.title);
             editorField.innerHTML = res.content;
@@ -39,7 +39,6 @@
         req.open("GET", url);
         req.onreadystatechange = function() {
             try {
-                alert(req.responseText);
                 var res = JSON.parse(req.responseText);
                 if(res.error) {
                     return callback(res.error);
