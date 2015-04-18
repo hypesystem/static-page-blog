@@ -9,18 +9,13 @@
     var name = getQueryVariable("name");
     
     if(name) {
-        var req = new XMLHttpRequest();
-        req.open("GET", "_api/get-blog-post.php?name="+name);
-        req.onreadystatechange = function() {
-            var res = JSON.parse(req.responseText);
-            if(res.error) {
-                alert("Something went wrong! "+res.error);
-                return;
+        getUrl("_api/get-blog-post.php?name="+name, function(error, res) {
+            if(error) {
+                return alert("Something went wrong! "+error);
             }
             titleField.setAttribute("value", res.title);
             editorField.innerHTML = res.content;
-        };
-        req.send();
+        });
     }
     else {
         titleField.innerHTML("No name provided");
@@ -37,5 +32,24 @@
             }
         }
         console.log('Query variable %s not found', variable);
+    }
+    
+    function getUrl(url, callback) {
+        var req = new XMLHttpRequest();
+        req.open("GET", url);
+        req.onreadystatechange = function() {
+            try {
+                alert(req.responseText);
+                var res = JSON.parse(req.responseText);
+                if(res.error) {
+                    return callback(res.error);
+                }
+                callback(null, res);
+            }
+            catch(e) {
+                callback(e);
+            }
+        };
+        req.send();
     }
 </script>
