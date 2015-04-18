@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Static Page Blog</title>
+    </head>
+    <body>
+        <input type="text" name="blog-post-title">
+<textarea style="width:100%; height:100%;" name="blog-post-content">
+
+</textarea>
+<script>
+    var titleField = document.querySelector("[name=blog-post-title]");
+    var editorField = document.querySelector("[name=blog-post-content]");
+    
+    var name = getQueryVariable("name");
+    
+    if(id) {
+        var req = new XMLHttpRequest();
+        req.open("GET", "_api/get-blog-post.php?name="+name);
+        req.onreadystatechange = function() {
+            var res = JSON.parse(req.responseText);
+            titleField.innerHTML = res.title;
+            editorField.innerHTML = res.content;
+        };
+        req.send();
+    }
+    else {
+        titleField.innerHTML("No name provided");
+        editorField.innerHTML = "---";
+    }
+    
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split('&');
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split('=');
+            if (decodeURIComponent(pair[0]) == variable) {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        console.log('Query variable %s not found', variable);
+    }
+</script>    </body>
+</html>
