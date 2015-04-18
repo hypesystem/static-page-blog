@@ -1,7 +1,7 @@
 <input type="text" name="blog-post-title">
-<textarea style="width:100%; height:100%;" name="blog-post-content">
+<textarea style="width:100%; height:100%;" name="blog-post-content"></textarea>
+<button type="submit" id="submit-button">Save</button>
 
-</textarea>
 <script>
     var titleField = document.querySelector("[name=blog-post-title]");
     var editorField = document.querySelector("[name=blog-post-content]");
@@ -50,5 +50,39 @@
             }
         };
         req.send();
+    }
+    
+    // ----
+    
+    var saveButton = document.querySelector("#submit-button");
+    saveButton.addEventListener("click", function(e) {
+        postUrl("_api/save-blog-post.php", {
+            title: titleField.getAttribute("value"),
+            content: editorField.innerHTML
+        }, function(error, res) {
+            if(error) {
+                return console.error("Failed to save! "+error);
+            }
+            console.log("Saved! yay!");
+        });
+        return false;
+    });
+    
+    function postUrl(url, data, callback) {
+        var req = new XMLHttpRequest();
+        req.open("POST", url);
+        req.onreadystatechange = function() {
+            try {
+                var res = JSON.parse(req.responseText);
+                if(res.error) {
+                    return callback(res.error);
+                }
+                callback(null, res);
+            }
+            catch(e) {
+                callback(e);
+            }
+        };
+        req.send(data);
     }
 </script>

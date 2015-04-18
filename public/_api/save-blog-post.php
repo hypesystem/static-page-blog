@@ -10,17 +10,18 @@ if(!isset($_POST)) {
 $data = json_decode(file_get_contents("php://input"));
 
 if($data == null) {
-    apiRespond(400, array("error" => "Could not decode posted JSON"));
+    apiRespond(400, array("error" => "Could not decode posted JSON", "requestData" => $data));
     exit();
 }
 
 if(!isset($data->title) || !isset($data->content)) {
-    apiRespond(400, array("error", => "Missing argument. Must provide both title and content fields"));
+    apiRespond(400, array("error" => "Missing argument. Must provide both title and content fields"));
     exit();
 }
 
 saveBlogPost($data->title, $data->content);
 renderBlogPost($data->title);
+apiRespond(200, array("ok" => "Saved succesfully"));
 
 function saveBlogPost($title, $content) {
     file_put_contents("../../data/blog-posts/".$title.".md", $content);
