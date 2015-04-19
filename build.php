@@ -11,7 +11,7 @@ renderViews($views);
 
 $blogPosts = getBlogPosts();
 renderBlogPosts($blogPosts);
-//renderIndex();
+renderIndex();
 //renderAdminOverview();
 
 function buildPublicFolderStructure() {
@@ -40,7 +40,7 @@ function copyApiFileToPublic($f) {
 
 function getViews() {
     $files = scandir("views");
-    return array_diff($files, array(".", "..", "_layout.php"));
+    return array_diff($files, array(".", "..", "_layout.php", "_indexBlogPostListItem.php", "_indexLayout.php"));
 }
 
 function renderViews($views) {
