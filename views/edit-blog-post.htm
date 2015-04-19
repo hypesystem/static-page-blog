@@ -38,15 +38,17 @@
         var req = new XMLHttpRequest();
         req.open("GET", url);
         req.onreadystatechange = function() {
-            try {
-                var res = JSON.parse(req.responseText);
-                if(res.error) {
-                    return callback(res.error);
+            if(req.readyState == 4) {
+                try {
+                    var res = JSON.parse(req.responseText);
+                    if(res.error) {
+                        return callback(res.error);
+                    }
+                    callback(null, res);
                 }
-                callback(null, res);
-            }
-            catch(e) {
-                callback(e);
+                catch(e) {
+                    callback(e);
+                }
             }
         };
         req.send();
@@ -72,15 +74,17 @@
         var req = new XMLHttpRequest();
         req.open("POST", url);
         req.onreadystatechange = function() {
-            try {
-                var res = JSON.parse(req.responseText);
-                if(res.error) {
-                    return callback(res.error);
+            if(req.readyState == 4) {
+                try {
+                    var res = JSON.parse(req.responseText);
+                    if(res.error) {
+                        return callback(res.error);
+                    }
+                    callback(null, res);
                 }
-                callback(null, res);
-            }
-            catch(e) {
-                callback(e+" - '"+req.responseText+"'");
+                catch(e) {
+                    callback(e+" - '"+req.responseText+"'");
+                }
             }
         };
         req.send(JSON.stringify(data));
