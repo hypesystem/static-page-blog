@@ -64,6 +64,9 @@ A better separation of framework, presentation, and business would be nice.
 Right now, the framework permeates everything---we're framework-whipped.
 And that's bad.
 
+An obvious improvement would be adding an existing templating engine, and using its flow.
+What I have written here is a bit wobbly and very hard to extend.
+
 The current work flow is a bit cumbersome.
 It can definitely be improved with developer tools (like grunt watching and building on change).
 It would also be nice to not ship with *Michelf/Markdown*, but use a package manager (composer) to include it.
