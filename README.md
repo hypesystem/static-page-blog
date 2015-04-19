@@ -40,3 +40,7 @@ A lot of the code, right now, is tied very much to the domain.
 A better separation of framework, presentation, and business would be nice.
 Right now, the framework permeates everything---we're framework-whipped.
 And that's bad.
+
+The current work flow is a bit cumbersome.
+It can definitely be improved with developer tools (like grunt watching and building on change).
+It would also be nice to not ship with *Michelf/Markdown*, but use a package manager (composer) to include it.
