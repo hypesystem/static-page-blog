@@ -59,7 +59,7 @@
     var saveButton = document.querySelector("#submit-button");
     saveButton.addEventListener("click", function(e) {
         postUrl("_api/save-blog-post.php", {
-            title: titleField.getAttribute("value"),
+            title: titleField.value,
             content: getEditorContent()
         }, function(error, res) {
             if(error) {
