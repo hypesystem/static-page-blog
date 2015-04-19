@@ -70,3 +70,8 @@ What I have written here is a bit wobbly and very hard to extend.
 The current work flow is a bit cumbersome.
 It can definitely be improved with developer tools (like grunt watching and building on change).
 It would also be nice to not ship with *Michelf/Markdown*, but use a package manager (composer) to include it.
+
+The project is currently quite ugly.
+Styling would be like a long-lost friend returning home after the war.
+What war?
+Any war.
