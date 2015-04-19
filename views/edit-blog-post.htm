@@ -58,7 +58,7 @@
     saveButton.addEventListener("click", function(e) {
         postUrl("_api/save-blog-post.php", {
             title: titleField.getAttribute("value"),
-            content: editorField.innerHTML
+            content: getEditorContent()
         }, function(error, res) {
             if(error) {
                 return console.error("Failed to save! "+error);
@@ -80,9 +80,13 @@
                 callback(null, res);
             }
             catch(e) {
-                callback(e);
+                callback(e+" - '"+req.responseText+"'");
             }
         };
         req.send(JSON.stringify(data));
+    }
+    
+    function getEditorContent() {
+        return document.querySelector("[name=blog-post-content]").value;
     }
 </script>

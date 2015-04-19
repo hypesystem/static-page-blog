@@ -20,8 +20,9 @@ if(!isset($data->title) || !isset($data->content)) {
 }
 
 saveBlogPost($data->title, $data->content);
-renderBlogPost($data->title);
+renderBlogPost($data->title, "../../");
 apiRespond(200, array("ok" => "Saved succesfully"));
+exit();
 
 function saveBlogPost($title, $content) {
     file_put_contents("../../data/blog-posts/".$title.".md", $content);
