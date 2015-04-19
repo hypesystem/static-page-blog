@@ -25,6 +25,7 @@ Let's start with looking at where the methods are used traditionally.
 Pages that can be edited within the system are usually rendered dynamically:
 every page is processed on the server, in some scripting language, before being sent to the browser.
 This works because every page depends on data in a database, and it is easy to write a system where each request results in database lookups and rendering of a page.
+It becomes easy to add an online editor (like the one Wordpress, or most other blogging services out there, has).
 The downside to this is that page load-time takes a lot longer than just serving a static HTML page.
 Caching can help with some issues here, but if, for example, user information is part of the rendered page, it must be re-rendered *every time* a request is made.
 
