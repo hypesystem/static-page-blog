@@ -21,6 +21,8 @@ if(!isset($data->title) || !isset($data->content)) {
 
 saveBlogPost($data->title, $data->content);
 renderBlogPost($data->title, "../../");
+renderIndex("../../");
+renderAdminOverview("../../");
 apiRespond(200, array("ok" => "Saved succesfully"));
 exit();
 
