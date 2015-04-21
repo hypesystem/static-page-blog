@@ -6,6 +6,9 @@ This is a quick little project that tries to combine two facets that are both po
 - allowing users to edit content through in-page editors, and
 - having all files that are shown be static files (ie. no waiting on server rendering)
 
+I realize now that the name of the project, *static-page-blog*, is slightly misleading.
+Please note that this is *not* like using Git as a CMS, because the files on the server in this project *can change after deployment*, note the 2<sup>nd</sup> point above.
+
 How to Use It
 -------------
 
