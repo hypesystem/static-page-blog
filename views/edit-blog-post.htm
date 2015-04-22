@@ -3,23 +3,27 @@
 <button type="submit" id="submit-button">Save</button>
 
 <script>
-    var titleField = document.querySelector("[name=blog-post-title]");
-    var editorField = document.querySelector("[name=blog-post-content]");
+    setUpEditPage();
     
-    var name = getQueryVariable("name");
+    function setUpEditPage() {
+        var titleField = document.querySelector("[name=blog-post-title]");
+        var editorField = document.querySelector("[name=blog-post-content]");
+        
+        loadPostIfExists(titleField, editorField);
+    }
     
-    if(name) {
+    function loadPostIfExists(titleField, editorField) {
+        var name = getQueryVariable("name");
+        if(!name) {
+            return;
+        }
         getUrl("_api/get-blog-post.php?name="+name, function(error, res) {
             if(error) {
-                return console.error("Something went wrong! "+error);
+                return console.error("Something went wrong!",error);
             }
             titleField.setAttribute("value", res.title);
             editorField.innerHTML = res.content;
         });
-    }
-    else {
-        titleField.innerHTML("New blog post");
-        editorField.innerHTML = "";
     }
     
     function getQueryVariable(variable) {
@@ -31,7 +35,7 @@
                 return decodeURIComponent(pair[1]);
             }
         }
-        console.log('Query variable %s not found', variable);
+        return false;
     }
     
     function getUrl(url, callback) {
