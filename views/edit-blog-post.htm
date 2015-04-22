@@ -39,12 +39,10 @@
     }
     
     function getUrl(url, callback) {
-        var req = new XMLHttpRequest();
-        req.open("GET", url);
-        req.onreadystatechange = function() {
-            if(req.readyState == 4) {
+        httpRequest("GET", url, function(readyState, body) {
+            if(readyState == 4) {
                 try {
-                    var res = JSON.parse(req.responseText);
+                    var res = JSON.parse(body);
                     if(res.error) {
                         return callback(res.error);
                     }
@@ -54,8 +52,16 @@
                     callback(e);
                 }
             }
+        }).send();
+    }
+    
+    function httpRequest(method, url, callback) {
+        var req = new XMLHttpRequest();
+        req.open(method, url);
+        req.onreadystatechange = function() {
+            callback(req.readyState, req.responseText);
         };
-        req.send();
+        return req;
     }
     
     // ----
@@ -75,23 +81,20 @@
     });
     
     function postUrl(url, data, callback) {
-        var req = new XMLHttpRequest();
-        req.open("POST", url);
-        req.onreadystatechange = function() {
-            if(req.readyState == 4) {
+        httpRequest("POST", url, function(readyState, body) {
+            if(readyState == 4) {
                 try {
-                    var res = JSON.parse(req.responseText);
+                    var res = JSON.parse(body);
                     if(res.error) {
                         return callback(res.error);
                     }
                     callback(null, res);
                 }
                 catch(e) {
-                    callback(e+" - '"+req.responseText+"'");
+                    callback(e+" - '"+body+"'");
                 }
             }
-        };
-        req.send(JSON.stringify(data));
+        }).send(JSON.stringify(data));
     }
     
     function getEditorContent() {
