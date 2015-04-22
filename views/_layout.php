@@ -11,6 +11,7 @@
                 font-family: sans-serif;
                 margin: 0;
                 text-align: center;
+                margin-bottom: 100px;
             }
             header {
                 background: #7f8c8d;
@@ -46,6 +47,38 @@
                 width: 100%;
                 max-width: 800px;
                 padding: 10px 20px;
+            }
+            .toolbar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: right;
+                padding: 25px 20px;
+                background: white;
+                z-index: 100;
+            }
+            .toolbar button {
+                margin: 0 25px;
+                border: 2px solid black;
+                text-transform: uppercase;
+                background: white;
+                font-size: 1.1em;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+            .toolbar .url-edit {
+                display: inline-block;
+                margin-right: 25px;
+                font-weight: bold;
+                font-size: 0.75em;
+                color: #95a5a6;
+                vertical-align: middle;
+            }
+            .toolbar .url-edit input {
+                border: none;
+                border-bottom: 1px dashed #95a5a6;
+                width: auto;
             }
         </style>
     </head>
