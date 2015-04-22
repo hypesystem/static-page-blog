@@ -85,3 +85,6 @@ The Markdown should be edited in a proper Markdown editor.
 In order to work like a real blog, we need some kind of user system.
 Keeping with the current approach, it would be very easy to simply write users to a file (each line containing user,salt,password).
 When this is introduced, login should be required for posting blog posts, and blog posts should have an author.
+
+At some point it should totally be made possible to edit the name of a blog post, so it doesn't just create a new one with the same content.
+Yeahhhh.
