@@ -60,12 +60,18 @@
             }
             .toolbar button {
                 margin: 0 25px;
-                border: 2px solid black;
+                border: 1px solid black;
                 text-transform: uppercase;
                 background: white;
-                font-size: 1.1em;
                 vertical-align: middle;
                 cursor: pointer;
+                padding: 6px 20px;
+                border-radius: 25px;
+                transition: background 0.2s, color 0.2s;
+            }
+            .toolbar button:hover {
+                background: black;
+                color: white;
             }
             .toolbar .url-edit {
                 display: inline-block;
