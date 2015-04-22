@@ -79,3 +79,9 @@ The project is currently quite ugly.
 Styling would be like a long-lost friend returning home after the war.
 What war?
 Any war.
+
+The Markdown should be edited in a proper Markdown editor.
+
+In order to work like a real blog, we need some kind of user system.
+Keeping with the current approach, it would be very easy to simply write users to a file (each line containing user,salt,password).
+When this is introduced, login should be required for posting blog posts, and blog posts should have an author.
