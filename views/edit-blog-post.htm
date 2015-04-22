@@ -14,6 +14,7 @@
         var editorField = document.querySelector("[name=blog-post-content]");
         
         loadPostIfExists(titleField, editorField);
+        setUpSaving(titleField, editorField);
     }
     
     function loadPostIfExists(titleField, editorField) {
@@ -70,19 +71,34 @@
     
     // ----
     
-    var saveButton = document.querySelector("#submit-button");
-    saveButton.addEventListener("click", function(e) {
-        postUrl("_api/save-blog-post.php", {
-            title: titleField.value,
-            content: getEditorContent()
-        }, function(error, res) {
-            if(error) {
-                return console.error("Failed to save! "+error);
-            }
-            console.log("Saved! yay!");
+    function setUpSaving(titleField, editorField) {
+        var saveButton = document.querySelector("#submit-button");
+        var toolbar = document.querySelector(".toolbar");
+        
+        saveButton.addEventListener("click", function(e) {
+            setToolbarState("saving");
+            postUrl("_api/save-blog-post.php", {
+                title: titleField.value,
+                content: getEditorContent()
+            }, function(error, res) {
+                if(error) {
+                    console.error("Failed to save! "+error);
+                    setToolbarState("failed");
+                    setTimeout(setToolbarState.bind(this, ""), 3000);
+                    return;
+                }
+                setToolbarState("saved");
+                setTimeout(setToolbarState.bind(this, ""), 3000);
+                console.log("Saved! yay!");
+            });
+            return false;
         });
-        return false;
-    });
+        
+        function setToolbarState(state) {
+            console.log("setting state", state);
+            toolbar.className = "toolbar "+state;
+        }
+    }
     
     function postUrl(url, data, callback) {
         httpRequest("POST", url, function(readyState, body) {

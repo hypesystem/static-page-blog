@@ -55,8 +55,43 @@
                 right: 0;
                 text-align: right;
                 padding: 25px 20px;
-                background: white;
+                background: #ecf0f1;
                 z-index: 100;
+                transition: background 1s;
+            }
+            .toolbar:before {
+                content: ' ... ';
+                display: inline-block;
+                float: left;
+                color: white;
+                background: rgba(0,0,0,0.4);
+                padding: 6px 18px;
+                border-radius: 25px;
+                opacity: 0;
+                transition: opacity 1s;
+                width: 70px;
+                text-align: left;
+            }
+            .toolbar.saving {
+                background: #bdc3c7;
+            }
+            .toolbar.saving:before {
+                content: 'Saving ... ';
+                opacity: 1;
+            }
+            .toolbar.saved {
+                background: #2ecc71;
+            }
+            .toolbar.saved:before {
+                content: 'Saved :-)';
+                opacity: 1;
+            }
+            .toolbar.failed {
+                background: #e74c3c;
+            }
+            .toolbar.failed:before {
+                content: 'Failed :-(';
+                opacity: 1;
             }
             .toolbar button {
                 margin: 0 25px;
@@ -85,6 +120,7 @@
                 border: none;
                 border-bottom: 1px dashed #95a5a6;
                 width: auto;
+                background: inherit;
             }
         </style>
     </head>
