@@ -75,13 +75,6 @@ The current work flow is a bit cumbersome.
 It can definitely be improved with developer tools (like grunt watching and building on change).
 It would also be nice to not ship with *Michelf/Markdown*, but use a package manager (composer) to include it.
 
-The project is currently quite ugly.
-Styling would be like a long-lost friend returning home after the war.
-What war?
-Any war.
-
-The Markdown should be edited in a proper Markdown editor.
-
 In order to work like a real blog, we need some kind of user system.
 Keeping with the current approach, it would be very easy to simply write users to a file (each line containing user,salt,password).
 When this is introduced, login should be required for posting blog posts, and blog posts should have an author.
