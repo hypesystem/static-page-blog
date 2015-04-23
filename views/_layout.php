@@ -122,6 +122,17 @@
                 width: auto;
                 background: inherit;
             }
+            .editor {
+                border: none;
+                resize: none;
+                width: 100%;
+                min-height: 500px;
+                overflow: hidden;
+                height: fit-content;
+                margin: 10px;
+                line-height: 175%;
+                padding-top: 1.1em;
+            }
         </style>
     </head>
     <body>
