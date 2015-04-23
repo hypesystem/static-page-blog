@@ -15,6 +15,7 @@
         
         loadPostIfExists(titleField, editorField);
         setUpSaving(titleField, editorField);
+        setUpEditorAutoHeight(editorField);
     }
     
     function loadPostIfExists(titleField, editorField) {
@@ -119,5 +120,15 @@
     
     function getEditorContent() {
         return document.querySelector("[name=blog-post-content]").value;
+    }
+    
+    function setUpEditorAutoHeight(editorField) {
+        console.log("setting up editor");
+        editorField.addEventListener("input", function() {
+            console.log("doing it", editorField.style.height, editorField.scrollHeight);
+            editorField.style.height = "0px";
+            editorField.style.height = editorField.scrollHeight + "px";
+        });
+        editorField.style.height = editorField.scrollHeight + "px";
     }
 </script>
