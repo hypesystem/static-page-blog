@@ -115,6 +115,9 @@
                 font-size: 0.75em;
                 color: #95a5a6;
                 vertical-align: middle;
+                background: #ecf0f1;
+                padding: 6px 15px;
+                border-radius: 25px;
             }
             .toolbar .url-edit input {
                 border: none;
