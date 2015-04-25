@@ -3,6 +3,7 @@
     <div class="url-edit">
         URL: <input type="text" name="blog-post-title">
     </div>
+    <button id="view-button">View</button>
     <button id="submit-button">Save</button>
 </div>
 
@@ -16,6 +17,7 @@
         loadPostIfExists(titleField, editorField);
         setUpSaving(titleField, editorField);
         setUpEditorAutoHeight(editorField);
+        setUpViewing(titleField);
     }
     
     function loadPostIfExists(titleField, editorField) {
@@ -130,5 +132,18 @@
             editorField.style.height = editorField.scrollHeight + "px";
         });
         editorField.style.height = editorField.scrollHeight + "px";
+    }
+    
+    function setUpViewing(titleField) {
+        var viewButton = document.querySelector("#view-button");
+        var viewLink = document.createElement("a");
+        console.log("VAL", titleField, titleField.value, titleField.getAttribute("value"));
+        viewLink.setAttribute("target", "_blank");
+        viewButton.addEventListener("click", function() {
+            viewLink.setAttribute("href", "/blog-posts/"+titleField.value+".htm");
+            document.body.appendChild(viewLink);
+            viewLink.click ? viewLink.click() : viewLink.onclick();
+            document.body.removeChild(viewLink);
+        });
     }
 </script>
