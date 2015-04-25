@@ -95,5 +95,3 @@ Maybe the `public/` folder should be renamed `build/` and `public/` should conta
 Turbolinks or the like would be super awesome, and really useful for search in particular.
 When a keypress is made, a query is made to the server, and the content is actually replaced.
 The only thing needed on enter-press would then be updating the URL (the content is already there).
-
-Hmmm -- I'm thinking there should totally be a "View" link from the editor to the actual post...
