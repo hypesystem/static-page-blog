@@ -102,3 +102,5 @@ saving with a blank name should not be == creating.
 Creating should happen separately, first, making the edit-url valid.
 
 I should add a license.
+
+We need a concept of draft/published.
