@@ -26,7 +26,15 @@ function renderAdminOverview($rootDir = "") {
 
 function getBlogPostLength($name, $rootDir = "") {
     $blogContent = readBlogPost($name, $rootDir);
-    return strlen($blogContent);
+    $length = strlen($blogContent);
+    if($length > 100) {
+        $length = convertLengthToThousands($length);
+    }
+    return $length;
+}
+
+function convertLengthToThousands($length) {
+    return round($length / 1000, 1)."k";
 }
 
 ?>
