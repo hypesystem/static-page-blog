@@ -70,6 +70,7 @@ And that's bad.
 
 An obvious improvement would be adding an existing templating engine, and using its flow.
 What I have written here is a bit wobbly and very hard to extend.
+[Twig](http://twig.sensiolabs.org/doc/installation.html) looks like a good choice, but this should be deferred until a package manager exists.
 
 The current work flow is a bit cumbersome.
 It can definitely be improved with developer tools (like grunt watching and building on change).
