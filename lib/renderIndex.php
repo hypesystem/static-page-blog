@@ -6,8 +6,7 @@ function renderIndex($rootDir = "") {
     
     $content = "";
     foreach($blogPosts as $p) {
-        $lastDotIndex = strrpos($p, ".");
-        $name = substr($p, 0, $lastDotIndex);
+        $name = getFileNameWithoutExt($p);
         $content .= render($rootDir."views/_indexBlogPostListItem.php", array(
             "name" => $name
         ));

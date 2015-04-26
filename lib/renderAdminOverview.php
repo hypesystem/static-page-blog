@@ -24,11 +24,6 @@ function renderAdminOverview($rootDir = "") {
     file_put_contents($rootDir."public/admin.htm", $content);
 }
 
-function getFileNameWithoutExt($fileName) {
-    $lastDotIndex = strrpos($fileName, ".");
-    return substr($fileName, 0, $lastDotIndex);
-}
-
 function getBlogPostLength($name, $rootDir = "") {
     $blogContent = readBlogPost($name, $rootDir);
     return strlen($blogContent);

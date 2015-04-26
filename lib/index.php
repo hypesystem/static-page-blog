@@ -2,6 +2,7 @@
 
 $dir = dirname(__FILE__)."/";
 
+require $dir."getFileNameWithoutExt.php";
 require $dir."render.php";
 require $dir."renderView.php";
 require $dir."apiRespond.php";
