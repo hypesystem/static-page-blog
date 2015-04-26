@@ -7,11 +7,10 @@ function renderAdminOverview($rootDir = "") {
     $content = "";
     foreach($blogPosts as $p) {
         $name = getFileNameWithoutExt($p);
-        $length = getBlogPostLength($name, $rootDir);
-        ob_start();
-        ob_implicit_flush(false);
-        require $rootDir."views/_adminBlogPostListItem.php";
-        $content .= ob_get_clean();
+        $content .= render($rootDir."views/_adminBlogPostListItem.php", array(
+            "name" => $name,
+            "length" => getBlogPostLength($name, $rootDir)
+        ));
     }
     
     ob_start();
