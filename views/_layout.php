@@ -136,6 +136,39 @@
                 line-height: 175%;
                 padding-top: 1.1em;
             }
+            .blog-post-entry {
+                display: block;
+                border-bottom: 1px solid #95a5a6;
+                color: black;
+                text-decoration: none;
+                background: white;
+                transition: background 0.2s, color 0.2s;
+                padding: 12px 8px;
+            }
+            .blog-post-entry:hover {
+                color: white;
+                background: black;
+            }
+            .blog-post-entry .blog-post-name {
+                font-weight: bold;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .blog-post-entry .blog-post-length {
+                float: right;
+                display: inline-block;
+                font-size: 0.8em;
+                padding: 3px 7px;
+                border: 1px solid black;
+                border-radius: 10px;
+                background: white;
+                color: black;
+                vertical-align: middle;
+            }
+            .blog-post-entry .blog-post-length:after {
+                content: " chars";
+                color: #7f8c8d;
+            }
         </style>
     </head>
     <body>

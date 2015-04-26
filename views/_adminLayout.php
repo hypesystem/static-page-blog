@@ -1,10 +1,4 @@
-<h1>Admin Overview</h1>
-
-<p>
-    This is the admin overview.
-    It's like the index, but also contains a link to edit blog posts.
-</p>
-
-<ul>
+<section class="blog-post-overview">
+    <h1>Existing posts</h1>
     <?php echo $content; ?>
-</ul>
+</section>
