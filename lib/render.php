@@ -7,3 +7,5 @@ function render($file, $variables = array()) {
     include $file;
     return ob_get_clean();
 }
+
+?>
