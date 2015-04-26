@@ -100,3 +100,5 @@ The only thing needed on enter-press would then be updating the URL (the content
 I should add a license.
 
 We need a concept of draft/published.
+
+Hmmm... deleting would be nice.
