@@ -49,19 +49,10 @@ function renderViews($views) {
     }
 }
 
-function getBlogPosts() {
-    $files = scandir("data/blog-posts");
-    $files = array_diff($files, array(".", ".."));
-    foreach($files as $i => $f) {
-        $lastDot = strrpos($f, ".");
-        $files[$i] = substr($f, 0, $lastDot);
-    }
-    return $files;
-}
-
 function renderBlogPosts($blogPosts) {
     foreach($blogPosts as $p) {
-        renderBlogPost($p);
+        $name = getFileNameWithoutExt($p);
+        renderBlogPost($name);
     }
 }
 

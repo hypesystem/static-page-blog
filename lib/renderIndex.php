@@ -1,8 +1,7 @@
 <?php
 
 function renderIndex($rootDir = "") {
-    $blogPosts = scandir($rootDir."data/blog-posts");
-    $blogPosts = array_diff($blogPosts, array(".", ".."));
+    $blogPosts = getBlogPosts($rootDir);
     
     $content = "";
     foreach($blogPosts as $p) {
