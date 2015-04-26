@@ -97,10 +97,6 @@ Turbolinks or the like would be super awesome, and really useful for search in p
 When a keypress is made, a query is made to the server, and the content is actually replaced.
 The only thing needed on enter-press would then be updating the URL (the content is already there).
 
-We should change the way blog posts are created:
-saving with a blank name should not be == creating.
-Creating should happen separately, first, making the edit-url valid.
-
 I should add a license.
 
 We need a concept of draft/published.
