@@ -3,8 +3,8 @@
 require dirname(__FILE__)."/../vendor/Michelf/Markdown.inc.php";
 
 function renderBlogPost($p, $rootDir = "") {
-    $rawBlogPost = file_get_contents($rootDir."data/blog-posts/".$p.".md");
-    $content = htmlFromMarkdown($rawBlogPost);
+    $rawBlogPost = readBlogPost($p);
+    $content = htmlFromMarkdown($rawBlogPost, $rootDir);
     ob_start();
     ob_implicit_flush(false);
     require $rootDir."views/_layout.php";
