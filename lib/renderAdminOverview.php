@@ -6,8 +6,7 @@ function renderAdminOverview($rootDir = "") {
     
     $content = "";
     foreach($blogPosts as $p) {
-        $lastDotIndex = strrpos($p, ".");
-        $name = substr($p, 0, $lastDotIndex);
+        $name = getFileNameWithoutExt($p);
         $length = getBlogPostLength($name, $rootDir);
         ob_start();
         ob_implicit_flush(false);
@@ -24,6 +23,11 @@ function renderAdminOverview($rootDir = "") {
     ob_implicit_flush(false);
     require $rootDir."views/_layout.php";
     file_put_contents($rootDir."public/admin.htm", ob_get_clean());
+}
+
+function getFileNameWithoutExt($fileName) {
+    $lastDotIndex = strrpos($fileName, ".");
+    return substr($fileName, 0, $lastDotIndex);
 }
 
 function getBlogPostLength($name, $rootDir = "") {
