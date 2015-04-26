@@ -186,6 +186,11 @@
                 border: 2px solid #95a5a6;
                 color: #7f8c8d;
             }
+            .big-text-input.error {
+                background: #e74c3c;
+                border: 2px solid #e74c3c;
+                color: white;
+            }
         </style>
     </head>
     <body>

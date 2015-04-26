@@ -21,7 +21,7 @@
                         title: input.value,
                         content: ""
                     }, function(error, res) {
-                        input.setAttribute("disabled", false);
+                        input.removeAttribute("disabled");
                         if(error) {
                             console.error("Failed to create blog post");
                             input.className = "big-text-input error";
