@@ -8,21 +8,20 @@ function renderIndex($rootDir = "") {
     foreach($blogPosts as $p) {
         $lastDotIndex = strrpos($p, ".");
         $name = substr($p, 0, $lastDotIndex);
-        ob_start();
-        ob_implicit_flush(false);
-        require $rootDir."views/_indexBlogPostListItem.php";
-        $content .= ob_get_clean();
+        $content .= render($rootDir."views/_indexBlogPostListItem.php", array(
+            "name" => $name
+        ));
     }
     
-    ob_start();
-    ob_implicit_flush(false);
-    require $rootDir."views/_indexLayout.php";
-    $content = ob_get_clean();
+    $content = render($rootDir."views/_indexLayout.php", array(
+        "content" => $content
+    ));
     
-    ob_start();
-    ob_implicit_flush(false);
-    require $rootDir."views/_layout.php";
-    file_put_contents($rootDir."public/index.htm", ob_get_clean());
+    $content = render($rootDir."views/_layout.php", array(
+        "content" => $content
+    ));
+    
+    file_put_contents($rootDir."public/index.htm", $content);
 }
 
 ?>

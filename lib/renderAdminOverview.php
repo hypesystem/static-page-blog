@@ -13,15 +13,15 @@ function renderAdminOverview($rootDir = "") {
         ));
     }
     
-    ob_start();
-    ob_implicit_flush(false);
-    require $rootDir."views/_adminLayout.php";
-    $content = ob_get_clean();
+    $content = render($rootDir."views/_adminLayout.php", array(
+        "content" => $content
+    ));
     
-    ob_start();
-    ob_implicit_flush(false);
-    require $rootDir."views/_layout.php";
-    file_put_contents($rootDir."public/admin.htm", ob_get_clean());
+    $content = render($rootDir."views/_layout.php", array(
+        "content" => $content
+    ));
+    
+    file_put_contents($rootDir."public/admin.htm", $content);
 }
 
 function getFileNameWithoutExt($fileName) {
