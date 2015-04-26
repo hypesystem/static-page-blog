@@ -173,6 +173,19 @@
                 content: " chars";
                 color: #7f8c8d;
             }
+            .big-text-input {
+                width: 100%;
+                border: 2px solid black;
+                padding: 12px 18px;
+                font-size: 1.15em;
+                box-sizing: border-box;
+                transition: background 0.2s, border 0.2s, color 0.2s;
+            }
+            .big-text-input:disabled {
+                background: #95a5a6;
+                border: 2px solid #95a5a6;
+                color: #7f8c8d;
+            }
         </style>
     </head>
     <body>
