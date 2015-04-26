@@ -48,6 +48,10 @@
                 max-width: 800px;
                 padding: 10px 20px;
             }
+            h1 {
+                margin-top: 40px;
+                margin-bottom: 8px;
+            }
             .toolbar {
                 position: fixed;
                 bottom: 0;
@@ -177,7 +181,6 @@
                 <span class="logo">static-page-blog</span>
                 <a href="/index.htm">Home</a>
                 <a href="/admin.htm">Admin-overview</a>
-                <a href="/edit-blog-post.htm">+ New blog post</a>
             </nav>
         </header>
         <section class="content">
