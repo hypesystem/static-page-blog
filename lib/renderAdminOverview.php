@@ -8,6 +8,8 @@ function renderAdminOverview($rootDir = "") {
     foreach($blogPosts as $p) {
         $lastDotIndex = strrpos($p, ".");
         $name = substr($p, 0, $lastDotIndex);
+        $blogContent = readBlogPost($name, $rootDir);
+        $length = strlen($blogContent);
         ob_start();
         ob_implicit_flush(false);
         require $rootDir."views/_adminBlogPostListItem.php";
