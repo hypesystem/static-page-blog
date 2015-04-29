@@ -11,6 +11,10 @@
                 <span class="logo">static-page-blog</span>
                 <a href="/index.htm">Home</a>
                 <a href="/admin.htm">Admin-overview</a>
+                <form action="search.php" method="get">
+                    <input type="text" placeholder="search ..." name="q">
+                    <button>-></button>
+                </form>
             </nav>
         </header>
         <section class="content">

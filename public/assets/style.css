@@ -185,3 +185,7 @@ h1 {
     border: 2px solid #e74c3c;
     color: white;
 }
+form {
+    display: inline-block;
+    float: right;
+}
