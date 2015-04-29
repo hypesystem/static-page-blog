@@ -2,9 +2,9 @@
 
 require "lib/index.php";
 
-buildPublicFolderStructure();
+ensureBuildFolderStructure();
 
-copyApiToPublic();
+copyApiToBuild();
 
 $views = getViews();
 renderViews($views);
@@ -14,7 +14,7 @@ renderBlogPosts($blogPosts);
 renderIndex();
 renderAdminOverview();
 
-function buildPublicFolderStructure() {
+function ensureBuildFolderStructure() {
     if(!file_exists("build")) {
         mkdir("build");
     }
@@ -26,15 +26,15 @@ function buildPublicFolderStructure() {
     }
 }
 
-function copyApiToPublic() {
+function copyApiToBuild() {
     $files = scandir("api");
     $files = array_diff($files, array(".", ".."));
     foreach($files as $f) {
-        copyApiFileToPublic($f);
+        copyApiFileToBuild($f);
     }
 }
 
-function copyApiFileToPublic($f) {
+function copyApiFileToBuild($f) {
     copy("api/".$f, "build/_api/".$f);
 }
 
