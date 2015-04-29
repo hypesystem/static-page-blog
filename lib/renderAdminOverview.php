@@ -20,7 +20,7 @@ function renderAdminOverview($rootDir = "") {
         "content" => $content
     ));
     
-    file_put_contents($rootDir."public/admin.htm", $content);
+    file_put_contents($rootDir."build/admin.htm", $content);
 }
 
 function getBlogPostLength($name, $rootDir = "") {

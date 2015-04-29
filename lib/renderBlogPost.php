@@ -8,7 +8,7 @@ function renderBlogPost($p, $rootDir = "") {
     $content = render($rootDir."views/_layout.php", array(
         "content" => $content
     ));
-    file_put_contents($rootDir."public/blog-posts/".$p.".htm", $content);
+    file_put_contents($rootDir."build/blog-posts/".$p.".htm", $content);
 }
 
 function htmlFromMarkdown($rawBlogPost) {

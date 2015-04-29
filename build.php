@@ -15,14 +15,14 @@ renderIndex();
 renderAdminOverview();
 
 function buildPublicFolderStructure() {
-    if(!file_exists("public")) {
-        mkdir("public");
+    if(!file_exists("build")) {
+        mkdir("build");
     }
-    if(!file_exists("public/_api")) {
-        mkdir("public/_api");
+    if(!file_exists("build/_api")) {
+        mkdir("build/_api");
     }
-    if(!file_exists("public/blog-posts")) {
-        mkdir("public/blog-posts");
+    if(!file_exists("build/blog-posts")) {
+        mkdir("build/blog-posts");
     }
 }
 
@@ -35,7 +35,7 @@ function copyApiToPublic() {
 }
 
 function copyApiFileToPublic($f) {
-    copy("api/".$f, "public/_api/".$f);
+    copy("api/".$f, "build/_api/".$f);
 }
 
 function getViews() {

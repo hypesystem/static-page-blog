@@ -13,7 +13,7 @@ How to Use It
 -------------
 
 Clone the repository.
-Have apache2 (or other web server) installed, and set up a URL for the `public/` folder.
+Have apache2 (or other web server) installed, and set up a URL for the `build/` folder.
 Have PHP installed and run the build script, `php build.php`.
 The site should now work at whatever URL you set up.
 

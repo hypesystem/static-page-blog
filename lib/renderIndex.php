@@ -19,7 +19,7 @@ function renderIndex($rootDir = "") {
         "content" => $content
     ));
     
-    file_put_contents($rootDir."public/index.htm", $content);
+    file_put_contents($rootDir."build/index.htm", $content);
 }
 
 ?>
