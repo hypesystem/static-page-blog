@@ -102,3 +102,5 @@ I should add a license.
 We need a concept of draft/published.
 
 Hmmm... deleting would be nice.
+
+The frontpage should be nicified, and the about page should be filled in with some info (link to Github?)
