@@ -13,6 +13,7 @@ $blogPosts = getBlogPosts();
 renderBlogPosts($blogPosts);
 renderIndex();
 renderAdminOverview();
+copyPublicFolderToBuild();
 
 function copyApiToBuild() {
     $files = scandir("api");
@@ -54,6 +55,26 @@ function renderBlogPosts($blogPosts) {
         $name = getFileNameWithoutExt($p);
         renderBlogPost($name);
     }
+}
+
+function copyPublicFolderToBuild() {
+    recursiveCopy("public", "build");
+}
+
+function recursiveCopy($src,$dst) { 
+    $dir = opendir($src); 
+    @mkdir($dst); 
+    while(false !== ($file = readdir($dir))) { 
+        if($file != '.' && $file != '..') { 
+            if(is_dir($src . '/' . $file)) { 
+                recursiveCopy($src.'/'.$file, $dst.'/'.$file); 
+            } 
+            else { 
+                copy($src.'/'.$file, $dst.'/'.$file); 
+            } 
+        } 
+    } 
+    closedir($dir); 
 }
 
 ?>
