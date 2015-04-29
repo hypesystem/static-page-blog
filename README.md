@@ -91,7 +91,7 @@ We should add a search.php
 Assets are a thing.
 Assets need to be possible.
 Files that are just as they are, whatever file type they are, and should be available publically.
-Maybe the `public/` folder should be renamed `build/` and `public/` should contain files that are copied directly (also including search.php).
+`public/` should contain files that are copied directly (also including search.php).
 
 Turbolinks or the like would be super awesome, and really useful for search in particular.
 When a keypress is made, a query is made to the server, and the content is actually replaced.
