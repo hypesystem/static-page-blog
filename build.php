@@ -14,6 +14,14 @@ renderBlogPosts($blogPosts);
 renderIndex();
 renderAdminOverview();
 
+function copyApiToBuild() {
+    $files = scandir("api");
+    $files = array_diff($files, array(".", ".."));
+    foreach($files as $f) {
+        copyApiFileToBuild($f);
+    }
+}
+
 function ensureBuildFolderStructure() {
     if(!file_exists("build")) {
         mkdir("build");
@@ -23,14 +31,6 @@ function ensureBuildFolderStructure() {
     }
     if(!file_exists("build/blog-posts")) {
         mkdir("build/blog-posts");
-    }
-}
-
-function copyApiToBuild() {
-    $files = scandir("api");
-    $files = array_diff($files, array(".", ".."));
-    foreach($files as $f) {
-        copyApiFileToBuild($f);
     }
 }
 
