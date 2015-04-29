@@ -88,11 +88,6 @@ Some pages just need to be dynamic (don't make sense as static ones).
 I am thinking, in particular, of search.
 We should add a search.php
 
-Assets are a thing.
-Assets need to be possible.
-Files that are just as they are, whatever file type they are, and should be available publically.
-`public/` should contain files that are copied directly (also including search.php).
-
 Turbolinks or the like would be super awesome, and really useful for search in particular.
 When a keypress is made, a query is made to the server, and the content is actually replaced.
 The only thing needed on enter-press would then be updating the URL (the content is already there).
