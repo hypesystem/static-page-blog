@@ -4,6 +4,7 @@ $dir = dirname(__FILE__)."/";
 
 require $dir."getFileNameWithoutExt.php";
 require $dir."render.php";
+require $dir."redirect.php";
 require $dir."getBlogPosts.php";
 require $dir."renderView.php";
 require $dir."apiRespond.php";
