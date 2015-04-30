@@ -41,7 +41,7 @@ function copyApiFileToBuild($f) {
 
 function getViews() {
     $files = scandir("views");
-    return array_diff($files, array(".", "..", "_layout.php", "_indexBlogPostListItem.php", "_indexLayout.php", "_adminBlogPostListItem.php", "_adminLayout.php"));
+    return array_diff($files, array(".", "..", "_layout.php", "_indexBlogPostListItem.php", "_indexLayout.php", "_adminBlogPostListItem.php", "_adminLayout.php", "_searchResult.php"));
 }
 
 function renderViews($views) {
